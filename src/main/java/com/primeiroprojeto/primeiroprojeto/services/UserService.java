@@ -1,5 +1,6 @@
 package com.primeiroprojeto.primeiroprojeto.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,12 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
     
+    public List<User> getAll() {
+        List<User> user = this.userRepository.findAll();
+        
+        return user;
+    }
+
     // Buscar por ID
     public User findById(Long id) {
         Optional<User> user = this.userRepository.findById(id); 
