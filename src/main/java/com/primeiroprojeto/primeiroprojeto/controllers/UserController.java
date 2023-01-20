@@ -21,14 +21,22 @@ import com.primeiroprojeto.primeiroprojeto.services.UserService;
 
 import jakarta.validation.Valid;
 
+10
+
+
+/* O papel do que chamamos de Controllers é de orquestração dos dados recebidos pela sua aplicação Java. 
+Ele deve tratar as entradas do sistema com algumas verificações, como de tipos de dados, por exemplo, se um parâmetro obrigatório foi enviado na requisição. */
 @RestController
+// endereço da URI que a aplicação acessa para usar esse controller
 @RequestMapping("/user")
 @Validated
 public class UserController {
     
+    // anotação para inicializar construtor
     @Autowired
     private UserService userService;
 
+    // localhost:8080/user
     @GetMapping
     public ResponseEntity<List<User>> get() {
         List<User> user = this.userService.getAll();
@@ -36,12 +44,14 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
+    // localhost:8080/user/1
     @GetMapping("/{id}")
     public ResponseEntity<User> findById(@PathVariable Long id) {
         User user = this.userService.findById(id);
         return ResponseEntity.ok().body(user);
     }
 
+    // localhost:8080/user
     @PostMapping
     @Validated
     public ResponseEntity<Void> create(@Valid @RequestBody User user) {
@@ -55,6 +65,7 @@ public class UserController {
         return ResponseEntity.created(uri).build();          
     }
 
+    // localhost:8080/user/1
     @PutMapping("/{id}")
     @Validated
     public ResponseEntity<Void> update(@Valid @RequestBody User user, @PathVariable Long id) {
@@ -63,6 +74,7 @@ public class UserController {
         return ResponseEntity.noContent().build();          
     }
 
+    // localhost:8080/user/1
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id) {
         this.userService.delete(id);
