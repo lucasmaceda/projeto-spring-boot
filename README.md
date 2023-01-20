@@ -14,7 +14,7 @@ Apache Maven (versão >= 3.8.6) = [link maven](https://maven.apache.org/download
 
 ## Configurar variáveis de ambiente do sistema
 
-Painel de Controle -> Variáveis de Ambiente
-MAVEN_HOME: C:/Program Files/Maven/apache-maven-3.8.6 (EXEMPLO)
-Path: %MAVEN_HOME%\bin
+- Painel de Controle -> Variáveis de Ambiente
+- MAVEN_HOME: C:/Program Files/Maven/apache-maven-3.8.6 (EXEMPLO)
+- Path: %MAVEN_HOME%\bin
 
