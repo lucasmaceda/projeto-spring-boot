@@ -10,12 +10,17 @@ import org.springframework.transaction.annotation.Transactional;
 import com.primeiroprojeto.primeiroprojeto.models.User;
 import com.primeiroprojeto.primeiroprojeto.repositories.UserRepository;
 
+/*
+   Os Services são responsáveis pela lógica de negócio da sua aplicação, além de ser responsável por se comunicar 
+   com as camadas mais internas do Software, como por exemplo, uma camada de Dados.
+*/
 @Service
 public class UserService {
     
     @Autowired
     private UserRepository userRepository;
     
+    // listar todos os dados
     public List<User> getAll() {
         List<User> user = this.userRepository.findAll();
         
