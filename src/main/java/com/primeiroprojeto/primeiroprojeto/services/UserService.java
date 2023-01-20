@@ -21,7 +21,7 @@ public class UserService {
     private UserRepository userRepository;
     
     // listar todos os dados
-    public List<User> getAll() {
+    public List<User> getAll() { 
         List<User> user = this.userRepository.findAll();
         
         return user;
